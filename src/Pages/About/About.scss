@@ -1,0 +1,74 @@
+@use './../../helpers/helpers' as *;
+
+.About {
+    height: 800px;
+    background-color: $BaseColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+
+    @include Breakpoints(mobile) {
+        height: 850px;
+    }
+
+    h1 {
+        @include Breakpoints(mobile) {
+            margin-top: 50px;
+        }
+    }
+
+    span {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        &::after,
+        &::before {
+            content: '';
+            border: solid white 1.4px;
+            width: 80px;
+            position: relative;
+            top: 2px;
+        }
+
+        svg {
+            font-size: 30px;
+        }
+    }
+
+    .About_Desc {
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include Breakpoints(small) {
+            justify-content: center;
+        }
+
+        @include Breakpoints(mobile) {
+            justify-content: center;
+        }
+
+        p {
+            width: 48%;
+            font-size: 16px;
+            text-align: justify;
+            margin-top: 10px;
+
+            @include Breakpoints(small) {
+                width: 80%;
+                text-align: left;
+                font-size: 19px;
+            }
+
+            @include Breakpoints(mobile) {
+                width: 100%;
+                text-align: left;
+                font-size: 19px;
+            }
+        }
+    }
+}

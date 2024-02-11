@@ -1,0 +1,106 @@
+@use './../../helpers/helpers' as *;
+
+.Contact {
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 50px;
+    color: #313e50;
+
+    .Contact_pt1 {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-size: 50px;
+
+            @include Breakpoints(mobile) {
+                font-size: 30px
+            }
+        }
+
+        span {
+            @include Icon();
+            color: #313e50;
+
+            &::after,
+            &::before {
+                border-color: #313e50;
+            }
+        }
+    }
+
+    form {
+        width: 70%;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 10px;
+
+        @include Breakpoints(medium) {
+            width: 80%;
+        }
+
+        @include Breakpoints(small) {
+            width: 90%;
+        }
+
+        @include Breakpoints(mobile) {
+            width: 100%;
+        }
+
+        .FormSection {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+
+            span {
+                position: absolute;
+                top: 25%;
+                color: $BaseColor;
+                @include Animation(0.4s, ease, all);
+
+                &.Show {
+                    top: 25%;
+                }
+
+                &.hidde {
+                    top: 120%;
+                }
+            }
+
+            input {
+                border: none;
+                border-bottom: 1px #313e504d solid;
+                padding-left: 10px;
+                width: 100%;
+                z-index: 2;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        button {
+            background-color: $BaseColor;
+            color: white;
+            margin-top: 20px;
+
+            &:hover {
+                background-color: rgba($BaseColor, 0.8);
+                color: white;
+            }
+        }
+    }
+
+}

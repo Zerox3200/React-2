@@ -1,0 +1,102 @@
+@use './../../helpers/helpers' as *;
+
+.Portfolio {
+    border: solid black 1px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+
+    h1 {
+        color: #313e50;
+
+        @include Breakpoints(mobile) {
+            font-size: 23px;
+        }
+    }
+
+    .Portfolio_cards {
+        height: max-content;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        .Portfolio_card1 {
+            width: calc(90% / 3);
+            height: 300px;
+            @include Background();
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include Breakpoints(medium) {
+                width: 40%;
+            }
+
+            @include Breakpoints(small) {
+                width: 60%;
+                height: 500px;
+            }
+
+            @include Breakpoints(mobile) {
+                width: 100%;
+                height: 500px;
+            }
+
+            svg {
+                color: white;
+                z-index: 2;
+                font-size: 70px;
+                opacity: 0;
+                @include Animation(0.4s, linear, all);
+            }
+
+            &:hover {
+                svg {
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($BaseColor, 0.8);
+                border-radius: 10px;
+                opacity: 0;
+                @include Animation(0.4s, linear, all);
+            }
+        }
+    }
+
+    span {
+        @include Icon();
+        color: #313e50;
+        margin-bottom: 20px;
+
+        &::after,
+        &::before {
+            border-color: #313e50;
+        }
+    }
+}
+
+.Sweet {
+    img {
+        object-fit: cover;
+    }
+}

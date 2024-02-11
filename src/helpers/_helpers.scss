@@ -1,0 +1,57 @@
+@mixin Breakpoints($point) {
+    @if $point ==mobile {
+        @media (max-width:767px) {
+            @content;
+        }
+    }
+
+    @else if $point ==small {
+        @media (min-width:768px) and (max-width:991px) {
+            @content;
+        }
+    }
+
+    @else if $point ==medium {
+        @media (min-width:992px) and (max-width:1199px) {
+            @content;
+        }
+    }
+
+    @else if $point ==large {
+        @media (min-width:1200px) {
+            @content;
+        }
+    }
+}
+
+@mixin Animation($Time, $Type, $Property) {
+    transition: $Time $Type $Property;
+}
+
+$BaseColor: #3fbb9c;
+
+@mixin Icon() {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    &::after,
+    &::before {
+        content: '';
+        border: solid white 1.4px;
+        width: 80px;
+        position: relative;
+        top: 2px;
+    }
+
+
+    svg {
+        font-size: 30px;
+    }
+}
+
+@mixin Background() {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
